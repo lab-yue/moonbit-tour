@@ -1,6 +1,7 @@
 {
   "is_main": true,
   "import": [
-    "yue4u/hello/lib"
+    "yue4u/hello/lib",
+    "yue4u/hello/lib/fib"
   ]
 }
