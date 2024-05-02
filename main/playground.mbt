@@ -45,7 +45,49 @@ fn loc(~label: String = "default", ~loc : SourceLoc = _, ~args_loc : ArgsLoc = _
   println("[\(label)] loc of arguments: \(args_loc)")
 }
 
-fn update_counter(~counter : Ref[Int] = default_counter) -> Int {
+fn update_counter(~counter : Ref[Int] = default_counter, ~_100 : Int = counter.val + 100) -> Int {
+  println("counter + 100: \(_100)")
   counter.val = counter.val + 1
   counter.val
 }
+
+fn pack(a: Bool, b: Int, c: String, d: Double) -> (Bool, Int, String, Double) {
+    (a, b, c, d)
+}
+
+fn init {
+    let quad = pack(false, 100, "text", 3.14)
+    let (bool_val, _a, _b, _c) = quad
+    if bool_val == quad.0 {
+      print("bool_val \(bool_val)")
+    }
+}
+
+// type UserId Int
+// type UserEmail String
+
+struct User {
+  mut id: Int
+  name: String
+  email: String
+} derive(Debug)
+
+fn init {
+  let email = "john@doe.com"
+  let u = { id: 0, name: "John Doe", email }
+  u.id = 999
+  println(u.id)
+  debug(u)
+}
+
+// pub struct R1 {
+//   x: Int
+//   pub y: Int
+//   priv z: Int
+// }
+
+// enum Relation {
+//   Smaller
+//   Greater
+//   Equal
+// }
